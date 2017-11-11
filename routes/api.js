@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Student = require('../models/student');
 const pic = require('../models/pic');
-
+var cors = require('cors');
 //routes
 
 //get list of students
-router.get('/students', function (req, res, next) {
+router.get('/students',cors(), function (req, res, next) {
     Student.find({}).then(function (student) {
         res.send(student);
     });
@@ -14,7 +14,7 @@ router.get('/students', function (req, res, next) {
 });
 
 // get single student
-router.get('/students/:id', function (req, res, next) {
+router.get('/students/:id',cors(), function (req, res, next) {
     Student.find({s_id: req.params.id}).then(function (student) {
         res.send(student);
     });
@@ -22,14 +22,14 @@ router.get('/students/:id', function (req, res, next) {
 });
 
 //add a new student
-router.post('/students', function (req, res, next) {
+router.post('/students', cors(), function (req, res, next) {
     Student.create(req.body).then(function (student) {
         res.send(student);
     }).catch(next);
 });
 
 //update an existing student
-router.put('/students/:id', function (req, res, next) {
+router.put('/students/:id', cors(), function (req, res, next) {
     Student.findByIdAndUpdate({
         _id: req.params.id
     }, req.body).then(function () {
@@ -43,7 +43,7 @@ router.put('/students/:id', function (req, res, next) {
 });
 
 //delete an existing student
-router.delete('/students/:id', function (req, res, next) {
+router.delete('/students/:id', cors(), function (req, res, next) {
     Student.findByIdAndRemove({
         _id: req.params.id
     }).then(function (student) {
