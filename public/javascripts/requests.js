@@ -3,7 +3,7 @@ var student_name = document.getElementById('name');
 var student_class = document.getElementById('class');
 var student_id = document.getElementById('s_id');
 var studentId = document.getElementById('_id');
-var endpoint = 'http://localhost:3000/api/students';
+var endpoint = 'https://alcweb.herokuapp.com/students';
 
 function getReq(url, callback) {
     var xhr = new XMLHttpRequest();
