@@ -1,0 +1,32 @@
+{
+  "name": "alcweb",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cloudinary": "^1.9.1",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.1",
+    "morgan": "~1.9.0",
+    "request": "^2.83.0",
+    "serve-favicon": "~2.4.5"
+  },
+  "description": "Simple CURD student management app",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/to-dy/alcweb.git"
+  },
+  "author": "Tolu Yussuff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/to-dy/alcweb/issues"
+  },
+  "homepage": "https://github.com/to-dy/alcweb#readme"
+}

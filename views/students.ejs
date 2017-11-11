@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #fff;
+            padding-bottom: 60px !important;
+            position: relative;
+            min-height: 100%;
+        }
+    </style>
+
+</head>
+
+<body onload="fetchStudents()">
+<div class="header">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-2x-12">
+                <div class="nav">
+                    <a href="/"></a>
+                    <a href="#"></a>
+                    <a href="/students"></a>
+                </div>
+                <div class="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search by ID" id="search">
+                        <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button"
+                                        onclick="search(document.getElementById('search').value)">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                    </div>
+                </div>
+                <div id="notify"></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<section class="students">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-2x-12">
+                <div class="students-container container" id="students">
+                    <h3>Loading...</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Modal content-->
+<% include editstudentmodal.ejs %>
+
+<footer>
+    <div class="footer1">
+        <div class="social">
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/toluyussuff" target="_blank">
+                        <i class="fa fa-linkedin fa-2x"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/to-dy" target="_blank">
+                        <i class="fa fa-github fa-2x"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/todywa" target="_blank">
+                        <i class="fa fa-twitter fa-2x"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://facebook.com/todywa" target="_blank">
+                        <i class="fa fa-facebook fa-2x"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/todywa" target="_blank">
+                        <i class="fa fa-instagram fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="footer2">
+        © 2017 ... Tolu Yussuff
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="/javascripts/requests.js"></script>
+
+</body>
+
+</html>

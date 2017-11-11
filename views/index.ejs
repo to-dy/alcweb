@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 left">
+            <div class="top">
+                <img src="images/andela.png" alt="" srcset="">
+                <img src="images/google.svg" alt="" srcset="">
+            </div>
+
+            <div class="quote">
+                <p class="quote-text">
+                    “People say 'Aren't you worried what students may do in the digital world?' My response, ‘I'm more
+                    worried if we don't teach
+                    them how.’”
+                </p>
+                <p class="quote-author">
+                    - Quote Author
+                </p>
+            </div>
+        </div>
+
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 right">
+            <div class="buttons">
+                <a href="/students" class="btn home-btn">
+                    VIEW STUDENTS
+                </a>
+
+                <a href="#student-modal" class="btn home-btn" data-toggle="modal">
+                    ADD NEW STUDENT
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- Modal content-->
+<% include addstudentmodal.ejs %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<% include cloudinary.ejs %>
+<script>
+    var screenHeight = $(window).height();
+    $(document).ready(function () {
+
+        $('.left').css({
+            'height': screenHeight,
+        });
+
+        $('.right').css({
+            'height': screenHeight,
+        });
+
+    });
+
+    $(window).resize(function () {
+        if ($('.left').height() != screenHeight) {
+            changeHeight();
+
+        }
+
+    });
+
+    function changeHeight() {
+        $('.left').css({
+            'height': screenHeight,
+        });
+
+        $('.right').css({
+            'height': screenHeight,
+        });
+    }
+
+    // to preview picture in the form
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profile-pic').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#pic").change(function () {
+        readURL(this);
+    });
+
+    $(".btn-reset").click(function () {
+        $('#profile-pic').attr('src', '#');
+    });
+</script>
+<script src="/javascripts/requests.js"></script>
+</body>
+</html>
