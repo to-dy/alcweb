@@ -3,7 +3,7 @@ var student_name = document.getElementById('name');
 var student_class = document.getElementById('class');
 var student_id = document.getElementById('s_id');
 var studentId = document.getElementById('_id');
-var endpoint = 'https://alcweb.herokuapp.com/students';
+var endpoint = 'https://alcweb.herokuapp.com/api/students';
 
 function getReq(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -225,38 +225,38 @@ function showalert(message, alerttype) {
 }
 
 
-// Image upload
-$(function () {
-    // Configure Cloudinary
-
-    $.cloudinary.config({
-        cloud_name: 'tody',
-        api_key: '452632437361316'
-    });
-
-    // Upload button
-    var uploadButton = $('#save');
-
-    // Upload button event
-    uploadButton.on('click', function (e) {
-        // Initiate upload
-        cloudinary.openUploadWidget({
-                cloud_name: 'tody',
-                upload_preset: 'YOUR_UPLOAD_PRESET',
-                tags: ['cgal']
-            },
-            function (error, result) {
-                if (error) console.log(error);
-                // If NO error, log image data to console
-                var id = result[0].public_id;
-                console.log(processImage(id));
-            });
-    });
-})
-
-function processImage(id) {
-    var options = {
-        client_hints: true,
-    };
-    return '<img src="' + $.cloudinary.url(id, options) + '" style="width: 100%; height: auto"/>';
-}
+// // Image upload
+// $(function () {
+//     // Configure Cloudinary
+//
+//     $.cloudinary.config({
+//         cloud_name: 'tody',
+//         api_key: '452632437361316'
+//     });
+//
+//     // Upload button
+//     var uploadButton = $('#save');
+//
+//     // Upload button event
+//     uploadButton.on('click', function (e) {
+//         // Initiate upload
+//         cloudinary.openUploadWidget({
+//                 cloud_name: 'tody',
+//                 upload_preset: 'YOUR_UPLOAD_PRESET',
+//                 tags: ['cgal']
+//             },
+//             function (error, result) {
+//                 if (error) console.log(error);
+//                 // If NO error, log image data to console
+//                 var id = result[0].public_id;
+//                 console.log(processImage(id));
+//             });
+//     });
+// })
+//
+// function processImage(id) {
+//     var options = {
+//         client_hints: true,
+//     };
+//     return '<img src="' + $.cloudinary.url(id, options) + '" style="width: 100%; height: auto"/>';
+// }
